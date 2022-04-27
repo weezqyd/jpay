@@ -34,7 +34,7 @@ func main() {
 		server.Run(":9090")
 	}(service)
 	
-	apiPort := api.NewApi(core.NewService(db))
+	apiPort := api.NewApi(service)
 	router := gin.Default()
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:3000", "http://localhost:3001", "http://localhost:9000"},
