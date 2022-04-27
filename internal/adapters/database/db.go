@@ -58,12 +58,13 @@ func (da *Adapter) GetCustomers(page uint64) ([]map[string]interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
+	
+	columns := make([]interface{}, len(cols))
+	columnPointers := make([]interface{}, len(cols))
+	for i := range columns {
+		columnPointers[i] = &columns[i]
+	}
 	for rows.Next() {
-		columns := make([]interface{}, len(cols))
-		columnPointers := make([]interface{}, len(cols))
-		for i := range columns {
-			columnPointers[i] = &columns[i]
-		}
 		if err := rows.Scan(columnPointers...); err != nil {
 			return nil, err
 		}
