@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "./pb";
+
+message GetCustomersOptions {
+  optional uint64 page = 1;
+  optional string  country = 3;
+}
+
+message Customer {
+  int64 id = 1;
+  string name = 2;
+  string phone = 3;
+  string country = 4;
+}
+
+message CustomersResponse {
+  repeated Customer data = 1;
+}
+
+service CustomerServices {
+  rpc GetAllCustomers(GetCustomersOptions) returns (CustomersResponse) {}
+}
+
+
+
+

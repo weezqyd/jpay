@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "nodemon --watch './**/*.go' --signal SIGTERM --exec 'go' run \"$@\""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
