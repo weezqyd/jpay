@@ -4,33 +4,33 @@ ENV APP_PATH  $GOPATH/src/app
 
 RUN mkdir -p $APP_PATH/frontend
 
-COPY go.mod $APP_PATH/
-
-COPY go.sum $APP_PATH/
-
 WORKDIR $APP_PATH
+
+COPY go.mod .
+
+COPY go.sum .
 
 RUN go mod download
 
-COPY frontend/package.json $APP_PATH/frontend/
+COPY frontend/package.json ./frontend/
 
-COPY frontend/yarn.lock $APP_PATH/frontend/
+COPY frontend/yarn.lock ./frontend/
 
-RUN apk update  && apk add npm nodejs build-base
+RUN apk update && apk add npm nodejs build-base
 
 RUN npm -g i yarn
 
-RUN cd $APP_PATH/frontend && yarn install;
+RUN cd frontend/ && yarn install;
 
-ADD . $APP_PATH/
+ADD . .
 
-RUN cd $APP_PATH/frontend; yarn build;
+RUN cd frontend/; yarn build;
 
 EXPOSE 9000
 
 EXPOSE 9090
 
-RUN go build -o /usr/local/bin/jpay $APP_PATH/cmd/main.go
+RUN go build -o /usr/local/bin/jpay ./cmd/main.go
 
 CMD ["/usr/local/bin/jpay"]
 
