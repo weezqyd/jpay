@@ -11,7 +11,7 @@ Technology stack
 Clone the repository to your local directory and use docker to deploy. this will expose the application on `http://localhost:9000`. Once the page loads ypo can use the dropdown to filter results based on the listed countries.
 
 ```shell
-git clone https://github.com/weezqyd/jpay
+git clone https://github.com/weezqyd/jpay.git
 
 cd jpay && docker compose up --build
 ```

@@ -33,7 +33,7 @@ npm run build
 ## Usage
 
 ```bash
-git clone https://github.com/weezqyd/jpay-test
+git clone https://github.com/weezqyd/jpay.git
 cd jpay-test/frontend
 npm i
 npm run dev
