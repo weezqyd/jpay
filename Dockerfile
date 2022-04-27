@@ -2,7 +2,7 @@ FROM golang:alpine
 
 ENV APP_PATH  $GOPATH/src/app
 
-RUN mkdir -p $APP_PATH/app/frontend
+RUN mkdir -p $APP_PATH/frontend
 
 COPY go.mod $APP_PATH/
 
