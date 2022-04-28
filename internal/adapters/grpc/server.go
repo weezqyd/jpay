@@ -18,7 +18,7 @@ func NewAdapter(api *core.Service) *Adapter {
 	return &Adapter{core: api}
 }
 
-// Run registers the ArithmeticServiceServer to a grpcServer and serves on
+// Run registers the Customer service to a grpcServer and serves on
 // the specified port
 func (a Adapter) Run(port string) {
 	var err error
